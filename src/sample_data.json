@@ -2,18 +2,63 @@
   speakEasies: [
     {
       id: 1,
-      name: "Eli's",
+      name: "Eli's Den",
+      tags: ["cool", "hip", "the place to be", "like omg"],
       description: "Something cool"
     },
     {
       id: 2,
-      name: "Tim's",
+      name: "Tim's Dungeon",
+      tags: ["it's ok", "its cool once in a while"],
       description: "It's aight"
     },
     {
       id: 3,
-      name: "Chris's",
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
       description: "Meh"
-    }
+    },
+    {
+      id: 4,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
+    {
+      id: 5,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
+    {
+      id: 6,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
+    {
+      id: 7,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
+    {
+      id: 8,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
+    {
+      id: 9,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
+    {
+      id: 10,
+      name: "Chris's Pub",
+      tags: ["it's ok", "its cool once in a while"],
+      description: "Meh"
+    },
   ]
 }

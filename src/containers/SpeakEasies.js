@@ -1,4 +1,5 @@
 import React from "react-native";
+import SpeakEasy from "../components/SpeakEasy"
 
 const {
   Component,
@@ -13,14 +14,6 @@ class SpeakEasiesContainer extends Component {
     dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
   };
 
-  renderSpeakEasy(speakEasy) {
-    return (
-      <View style={styles.speakEasyContainer}>
-        <Text style={styles.name}>{speakEasy.name}</Text>
-      </View>
-    );
-  }
-
   componentWillReceiveProps(nextProps) {
     if (this.props.speakEasies !== nextProps.speakEasies) {
       this.setState({
@@ -34,7 +27,7 @@ class SpeakEasiesContainer extends Component {
       <View style={styles.container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderSpeakEasy}
+          renderRow={ (row) => <SpeakEasy speakEasy={row} /> }
           style={styles.listView}
         />
       </View>
@@ -48,11 +41,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   listView: {
     paddingTop: 20,
+    flex: 1
   },
   name: {
     textAlign: 'center',
