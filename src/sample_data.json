@@ -1,0 +1,19 @@
+{
+  speakEasies: [
+    {
+      id: 1,
+      name: "Eli's",
+      description: "Something cool"
+    },
+    {
+      id: 2,
+      name: "Tim's",
+      description: "It's aight"
+    },
+    {
+      id: 3,
+      name: "Chris's",
+      description: "Meh"
+    }
+  ]
+}
