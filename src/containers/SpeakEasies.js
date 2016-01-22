@@ -1,6 +1,7 @@
 import React from "react-native";
 import SpeakEasyListItem from "../components/SpeakEasyListItem"
 import { connect } from "react-redux"
+import { loadSpeakEasies } from "../actions"; 
 import Router from "../Router"
 import styles from "../styles/containers/SpeakEasies"
 
@@ -20,7 +21,7 @@ class SpeakEasiesContainer extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
-    dispatch({ type: 'LOADED' });
+    dispatch(loadSpeakEasies());
   }
 
   componentWillReceiveProps(nextProps) {

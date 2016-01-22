@@ -2,18 +2,9 @@ import React, { Component } from "react-native";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import Root from "./containers/Root";
-import data from "./sample_data";
+import configureStore from './store/configureStore';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'LOADED':
-      return data
-    default:
-      return state
-  }
-}
-
-const store = createStore(reducer, { speakEasies: [] });
+const store = configureStore();
 
 class EasySpeak extends Component {
   render() {

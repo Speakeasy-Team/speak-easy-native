@@ -1,5 +1,5 @@
 import React from "react-native";
-import styles from "../styles/components/SpeakEasyListItem"
+import styles from "../styles/components/SpeakEasyListItem";
 
 const {
   Component,
