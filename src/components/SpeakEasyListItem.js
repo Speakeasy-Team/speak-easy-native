@@ -1,4 +1,5 @@
 import React from "react-native";
+import styles from "../styles/components/SpeakEasyListItem"
 
 const {
   Component,
@@ -21,21 +22,5 @@ class SpeakEasyListItem extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  component: {
-    borderWidth: 1,
-    flex: 1,
-    padding: 20,
-  },
-  name: {
-    textAlign: 'center',
-    fontSize: 20
-  },
-  tags: {
-    textAlign: 'center',
-    fontSize: 15
-  }
-});
 
 export default SpeakEasyListItem
