@@ -7,7 +7,7 @@ const {
   StyleSheet,
 } = React;
 
-class SpeakEasy extends Component {
+class SpeakEasyListItem extends Component {
   render() {
     const { speakEasy } = this.props
     const tags = speakEasy.tags.join(', ')
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SpeakEasy
+export default SpeakEasyListItem
