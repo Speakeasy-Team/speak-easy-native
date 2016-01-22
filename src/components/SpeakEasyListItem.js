@@ -5,18 +5,19 @@ const {
   View,
   Text,
   StyleSheet,
+  TouchableOpacity
 } = React;
 
 class SpeakEasyListItem extends Component {
   render() {
-    const { speakEasy } = this.props
-    const tags = speakEasy.tags.join(', ')
+    const { speakEasy, onPress } = this.props;
+    const tags = speakEasy.tags.join(', ');
 
     return (
-      <View style={styles.component}>
+      <TouchableOpacity style={styles.component} onPress={onPress}>
         <Text style={styles.name}>{speakEasy.name}</Text>
         <Text style={styles.tags}>{tags}</Text>
-      </View>
+      </TouchableOpacity>
     )
   }
 }
