@@ -1,5 +1,6 @@
 import React from "react-native";
 import SpeakEasy from "../components/SpeakEasy"
+import { connect } from "react-redux"
 
 const {
   Component,
@@ -13,6 +14,12 @@ class SpeakEasiesContainer extends Component {
   state = {
     dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+
+    dispatch({ type: 'LOADED' });
+  }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.speakEasies !== nextProps.speakEasies) {
@@ -40,6 +47,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    paddingTop: 44,
     justifyContent: 'flex-start',
     backgroundColor: '#F5FCFF',
   },
@@ -53,4 +61,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SpeakEasiesContainer
+const select = (state) => {
+  return {
+    speakEasies: state.speakEasies || []
+  }
+}
+
+export default connect(select)(SpeakEasiesContainer);
