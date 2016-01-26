@@ -24,10 +24,6 @@ const Router = {
           <SpeakEasy navigator={navigator} speakEasy={speakEasy} />
         );
       },
-
-      getTitle() {
-        return speakEasy.name;
-      }
     }
   }
 }

@@ -1,8 +1,7 @@
 import React from "react-native";
 import SpeakEasiesMapView from "../components/SpeakEasiesMapView";
-import ActiveSpeakEasy from "../components/ActiveSpeakEasy";
 import { connect } from "react-redux";
-import { loadSpeakEasies, selectActiveSpeakEasy } from "../actions";
+import { loadSpeakEasies } from "../actions";
 import Router from "../Router";
 import styles from "../styles/containers/SpeakEasies";
 
@@ -20,10 +19,11 @@ class SpeakEasiesContainer extends Component {
     dispatch(loadSpeakEasies());
   }
 
-  selectSpeakEasy(id) {
-    const { dispatch } = this.props;
+  showSpeakEasy(speakEasy) {
+    const { navigator } = this.props;
+    const route = Router.getSpeakEasyRoute(speakEasy);
 
-    dispatch(selectActiveSpeakEasy(id));
+    navigator.push(route);
   }
 
   render() {
@@ -41,9 +41,8 @@ class SpeakEasiesContainer extends Component {
       <View style={styles.container}>
         <SpeakEasiesMapView
           speakEasies={speakEasies}
-          onSpeakEasyPress={this.selectSpeakEasy.bind(this)}
+          onMorePress={this.showSpeakEasy.bind(this)}
         />
-        {activeSpeakEasy && <ActiveSpeakEasy speakEasy={activeSpeakEasy} />}
       </View>
     );
   }

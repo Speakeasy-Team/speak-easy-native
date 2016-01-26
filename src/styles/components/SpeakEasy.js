@@ -17,7 +17,11 @@ const styles = {
   },
   description: {
     margin: 10,
-  }
+  },
+  image: {
+    height: 60,
+    width: 60
+  },
 }
 
 export default styles
