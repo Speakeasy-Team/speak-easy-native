@@ -1,5 +1,6 @@
 export const REQUEST_SPEAK_EASIES = 'REQUEST_SPEAK_EASIES';
 export const RECEIVE_SPEAK_EASIES = 'RECEIVE_SPEAK_EASIES';
+export const SELECT_ACTIVE_SPEAKEASY = 'SELECT_ACTIVE_SPEAKEASY';
 
 const API_URL = 'http://localhost:4000';
 
@@ -10,7 +11,7 @@ function requestSpeakEasies() {
 function receiveSpeakEasies(json) {
   return {
     type: RECEIVE_SPEAK_EASIES,
-    json: json
+    json
   }
 }
 
@@ -24,3 +25,9 @@ export function loadSpeakEasies() {
   }
 }
 
+export function selectActiveSpeakEasy(id) {
+  return {
+    type: SELECT_ACTIVE_SPEAKEASY,
+    id
+  }
+}
