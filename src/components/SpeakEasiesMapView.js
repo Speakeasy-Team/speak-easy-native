@@ -1,8 +1,8 @@
 import React from "react-native";
 import { connect } from "react-redux";
-import { loadSpeakEasies } from "../actions";
 import Router from "../Router";
 import styles from "../styles/components/SpeakEasyMapView";
+import { loadSpeakEasies } from "../actions";
 
 const {
   Component,
@@ -14,8 +14,30 @@ const {
 } = React;
 
 class SpeakEasiesMapView extends Component {
+  onMorePress(speakEasy) {
+    const { navigator } = this.props;
+
+    navigator.push(Router.getSpeakEasyRoute(speakEasy));
+  }
+
   render() {
-    const { speakEasies, onMorePress } = this.props;
+    const {
+      speakEasies,
+      onMorePress,
+      currentLocation: {
+        coords: {
+           latitude, longitude
+        }
+      }
+    } = this.props;
+
+    const region = {
+      latitude: latitude,
+      longitude: longitude,
+      latitudeDelta: 0.09,
+      longitudeDelta: 0.04,
+    }
+
     const annotations = speakEasies.map((speakEasy) => {
       return {
         id: speakEasy.id.toString(),
@@ -23,7 +45,7 @@ class SpeakEasiesMapView extends Component {
         latitude: speakEasy.latitude,
         longitude: speakEasy.longitude,
         rightCalloutView: (
-          <TouchableOpacity onPress={() => onMorePress(speakEasy)}>
+          <TouchableOpacity onPress={() => this.onMorePress(speakEasy)}>
             <Text>More</Text>
           </TouchableOpacity>
         ),
@@ -40,9 +62,11 @@ class SpeakEasiesMapView extends Component {
     return (
       <View style={styles.view}>
         <MapView
+          region={region}
           style={styles.map}
           showsUserLocation={true}
           followUserLocation={true}
+          showsPointsOfInterest={false}
           annotations={annotations}
         />
       </View>
@@ -50,4 +74,14 @@ class SpeakEasiesMapView extends Component {
   }
 }
 
-export default SpeakEasiesMapView
+const findSpeakEasyById = (speakEasies, id) => {
+  return speakEasies.find((speakEasy) => speakEasy.id === id);
+};
+
+const select = (state) => {
+  return {
+    speakEasies: state.speakEasies || [],
+    currentLocation: state.currentLocation
+  }
+}
+export default connect(select)(SpeakEasiesMapView);

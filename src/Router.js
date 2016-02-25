@@ -1,9 +1,15 @@
 import React from "react-native";
 import SpeakEasies from "./containers/SpeakEasies";
 import SpeakEasy from "./components/SpeakEasy";
+import NavButton from "./components/NavButton";
+import SpeakEasiesMapView from "./components/SpeakEasiesMapView";
+import SpeakEasyMapView from "./components/SpeakEasyMapView";
+
+const { Button, Text, TouchableHighlight } = React;
 
 const Router = {
   getSpeakEasiesRoute() {
+    const that = this;
     return {
       renderScene(navigator) {
         return (
@@ -13,7 +19,16 @@ const Router = {
 
       getTitle() {
         return 'Speak Easies';
-      }
+      },
+
+      renderRightButton(navigator) {
+        return (
+          <NavButton
+            navigator={navigator}
+            route={that.getSpeakEasiesMapRoute()}
+          />
+        );
+      },
     }
   },
 
@@ -24,6 +39,16 @@ const Router = {
           <SpeakEasy navigator={navigator} speakEasy={speakEasy} />
         );
       },
+    }
+  },
+
+  getSpeakEasiesMapRoute() {
+    return {
+      renderScene(navigator) {
+        return (
+          <SpeakEasiesMapView navigator={navigator} />
+        );
+      }
     }
   }
 }
