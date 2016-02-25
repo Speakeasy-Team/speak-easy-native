@@ -1,7 +1,7 @@
 export const REQUEST_SPEAK_EASIES = 'REQUEST_SPEAK_EASIES';
 export const RECEIVE_SPEAK_EASIES = 'RECEIVE_SPEAK_EASIES';
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'http://dry-hamlet-63070.herokuapp.com';
 
 function requestSpeakEasies() {
   return { type: REQUEST_SPEAK_EASIES }
