@@ -46,7 +46,7 @@ const Router = {
     return {
       renderScene(navigator) {
         return (
-          <SpeakEasiesMapView navigator={navigator} />
+          <SpeakEasyMapView navigator={navigator} />
         );
       }
     }
