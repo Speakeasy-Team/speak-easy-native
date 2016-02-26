@@ -10,12 +10,18 @@ const {
 } = React;
 
 class SpeakEasyListItem extends Component {
+  handlePress() {
+    const { onPress, speakEasy } = this.props;
+
+    onPress(speakEasy);
+  }
+
   render() {
     const { speakEasy, onPress } = this.props;
     const tags = speakEasy.tags.join(', ');
 
     return (
-      <TouchableOpacity style={styles.component} onPress={onPress}>
+      <TouchableOpacity style={styles.component} onPress={this.handlePress.bind(this)}>
         <Text style={styles.name}>{speakEasy.name}</Text>
         <Text style={styles.tags}>{tags}</Text>
       </TouchableOpacity>

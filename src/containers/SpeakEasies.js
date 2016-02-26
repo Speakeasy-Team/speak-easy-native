@@ -1,9 +1,7 @@
 import React from "react-native";
 import { connect } from "react-redux";
-
-import { loadSpeakEasies } from "../actions";
+import { loadSpeakEasies, setCurrentLocation } from "../actions";
 import Router from "../Router";
-import SpeakEasiesMapView from "../components/SpeakEasiesMapView";
 import SpeakEasyListView from "../components/SpeakEasyListView";
 import styles from "../styles/containers/SpeakEasies";
 
@@ -18,6 +16,7 @@ class SpeakEasiesContainer extends Component {
     const { dispatch } = this.props;
 
     dispatch(loadSpeakEasies());
+    dispatch(setCurrentLocation());
   }
 
   showSpeakEasy(speakEasy) {
@@ -28,7 +27,9 @@ class SpeakEasiesContainer extends Component {
   }
 
   render() {
-    const { speakEasies, activeSpeakEasy, isFetching, navigator } = this.props
+    const {
+      speakEasies, activeSpeakEasy, isFetching
+    } = this.props
 
     if (isFetching) {
       return (
@@ -40,7 +41,10 @@ class SpeakEasiesContainer extends Component {
 
     return (
       <View style={styles.container}>
-        <SpeakEasyListView speakEasies={speakEasies} navigator={navigator} />
+        <SpeakEasyListView
+          speakEasies={speakEasies}
+          onPress={this.showSpeakEasy.bind(this)}
+        />
       </View>
     );
   }
@@ -53,7 +57,6 @@ const findSpeakEasyById = (speakEasies, id) => {
 const select = (state) => {
   return {
     speakEasies: state.speakEasies || [],
-    activeSpeakEasy: findSpeakEasyById(state.speakEasies, state.activeSpeakEasy),
     isFetching: state.isFetching,
   }
 }

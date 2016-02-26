@@ -23,6 +23,12 @@ class SpeakEasyListView extends Component {
     });
   }
 
+  onSpeakEasyPress(speakEasy) {
+    const { onPress } = this.props;
+
+    onPress(speakEasy);
+  }
+
   renderRow(row) {
     const { navigator } = this.props;
     const route = Router.getSpeakEasyRoute(row);
@@ -30,7 +36,7 @@ class SpeakEasyListView extends Component {
     return (
       <SpeakEasyListItem
         speakEasy={row}
-        onPress={() => navigator.push(route)}
+        onPress={this.onSpeakEasyPress.bind(this)}
       />
     );
   }
