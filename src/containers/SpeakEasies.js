@@ -1,9 +1,7 @@
 import React from "react-native";
 import { connect } from "react-redux";
-
 import { loadSpeakEasies, setCurrentLocation } from "../actions";
 import Router from "../Router";
-import SpeakEasiesMapView from "../components/SpeakEasiesMapView";
 import SpeakEasyListView from "../components/SpeakEasyListView";
 import styles from "../styles/containers/SpeakEasies";
 
@@ -11,7 +9,6 @@ const {
   Component,
   View,
   Text,
-  Geolocation,
 } = React;
 
 class SpeakEasiesContainer extends Component {

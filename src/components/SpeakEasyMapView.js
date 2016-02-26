@@ -8,9 +8,32 @@ const { View, TouchableHighlight, Text } = React;
 
 class SpeakEasyMapView extends React.Component {
   onCalloutPress(speakEasy) {
-    const { navigator } = this.props;
+    const { navigator, onCalloutPress } = this.props;
 
-    navigator.push(Router.getSpeakEasyRoute(speakEasy));
+    onCalloutPress(speakEasy);
+  }
+
+  renderMarkers(speakEasies) {
+    return speakEasies.map((speakEasy) => {
+      const coords = {
+        latitude: speakEasy.latitude,
+        longitude: speakEasy.longitude
+      }
+      return (
+        <MapView.Marker
+          key={speakEasy.id}
+          coordinate={coords}
+        >
+          <MapView.Callout>
+            <SpeakEasyCallout
+              name={speakEasy.name}
+              description={speakEasy.description}
+              onPress={() => this.onCalloutPress(speakEasy)}
+            />
+          </MapView.Callout>
+        </MapView.Marker>
+      )
+    })
   }
 
   render() {
@@ -38,36 +61,10 @@ class SpeakEasyMapView extends React.Component {
         showsPointsOfInterest={false}
         style={{flex: 1}}
       >
-      {speakEasies.map((speakEasy) => {
-        const coords = {
-          latitude: speakEasy.latitude,
-          longitude: speakEasy.longitude
-        }
-        return (
-          <MapView.Marker
-            key={speakEasy.id}
-            coordinate={coords}
-          >
-            <MapView.Callout>
-              <SpeakEasyCallout
-                name={speakEasy.name}
-                description={speakEasy.description}
-                onPress={() => this.onCalloutPress(speakEasy)}
-              />
-            </MapView.Callout>
-          </MapView.Marker>
-        )
-      })}
+        {this.renderMarkers(speakEasies)}
       </MapView>
     )
   }
 }
 
-const select = (state) => {
-  return {
-    speakEasies: state.speakEasies,
-    currentLocation: state.currentLocation,
-  }
-}
-
-export default connect(select)(SpeakEasyMapView);
+export default SpeakEasyMapView;

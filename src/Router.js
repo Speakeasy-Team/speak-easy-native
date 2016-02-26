@@ -1,15 +1,14 @@
 import React from "react-native";
+import ExNavigator from "@exponent/react-native-navigator";
 import SpeakEasies from "./containers/SpeakEasies";
 import SpeakEasy from "./components/SpeakEasy";
 import NavButton from "./components/NavButton";
-import SpeakEasiesMapView from "./components/SpeakEasiesMapView";
-import SpeakEasyMapView from "./components/SpeakEasyMapView";
+import SpeakEasyMapViewContainer from "./containers/SpeakEasyMapViewContainer";
 
 const { Button, Text, TouchableHighlight } = React;
 
 const Router = {
   getSpeakEasiesRoute() {
-    const that = this;
     return {
       renderScene(navigator) {
         return (
@@ -24,8 +23,8 @@ const Router = {
       renderRightButton(navigator) {
         return (
           <NavButton
-            navigator={navigator}
-            route={that.getSpeakEasiesMapRoute()}
+            onPress={() => navigator.push(Router.getSpeakEasyMapRoute())}
+            text="Map"
           />
         );
       },
@@ -42,11 +41,32 @@ const Router = {
     }
   },
 
-  getSpeakEasiesMapRoute() {
+  getSpeakEasyMapRoute() {
     return {
+      configureScene() {
+        return {...ExNavigator.SceneConfigs.FloatFromBottom, gestures: null};
+      },
+
       renderScene(navigator) {
         return (
-          <SpeakEasyMapView navigator={navigator} />
+          <SpeakEasyMapViewContainer navigator={navigator} />
+        );
+      },
+
+      getTitle() {
+        return 'Speak Easies';
+      },
+
+      renderLeftButton() {
+        return null;
+      },
+
+      renderRightButton(navigator) {
+        return (
+          <NavButton
+            onPress={() => navigator.pop()}
+            text="List"
+          />
         );
       }
     }
