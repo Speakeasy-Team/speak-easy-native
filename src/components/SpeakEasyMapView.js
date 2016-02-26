@@ -8,7 +8,7 @@ const { View, TouchableHighlight, Text } = React;
 
 class SpeakEasyMapView extends React.Component {
   onCalloutPress(speakEasy) {
-    const { navigator, onCalloutPress } = this.props;
+    const { onCalloutPress } = this.props;
 
     onCalloutPress(speakEasy);
   }

@@ -28,7 +28,7 @@ class SpeakEasiesContainer extends Component {
 
   render() {
     const {
-      speakEasies, activeSpeakEasy, isFetching, navigator
+      speakEasies, activeSpeakEasy, isFetching
     } = this.props
 
     if (isFetching) {
@@ -41,7 +41,10 @@ class SpeakEasiesContainer extends Component {
 
     return (
       <View style={styles.container}>
-        <SpeakEasyListView speakEasies={speakEasies} navigator={navigator} />
+        <SpeakEasyListView
+          speakEasies={speakEasies}
+          onPress={this.showSpeakEasy.bind(this)}
+        />
       </View>
     );
   }
