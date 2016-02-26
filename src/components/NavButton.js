@@ -5,8 +5,8 @@ const { Text, TouchableHighlight, Component } = React;
 
 class NavButton extends Component {
   handlePress() {
-    const { navigator, route } = this.props
-    navigator.push(route);
+    const { onPress } = this.props
+    onPress();
   }
 
   render() {

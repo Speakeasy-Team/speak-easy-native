@@ -34,8 +34,8 @@ class SpeakEasiesMapView extends Component {
     const region = {
       latitude: latitude,
       longitude: longitude,
-      latitudeDelta: 0.09,
-      longitudeDelta: 0.04,
+      latitudeDelta: 0.008,
+      longitudeDelta: 0.005,
     }
 
     const annotations = speakEasies.map((speakEasy) => {
@@ -72,10 +72,6 @@ class SpeakEasiesMapView extends Component {
     );
   }
 }
-
-const findSpeakEasyById = (speakEasies, id) => {
-  return speakEasies.find((speakEasy) => speakEasy.id === id);
-};
 
 const select = (state) => {
   return {
