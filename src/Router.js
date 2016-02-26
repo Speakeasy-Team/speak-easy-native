@@ -4,12 +4,12 @@ import SpeakEasy from "./components/SpeakEasy";
 import NavButton from "./components/NavButton";
 import SpeakEasiesMapView from "./components/SpeakEasiesMapView";
 import SpeakEasyMapView from "./components/SpeakEasyMapView";
+import ExNavigator from "@exponent/react-native-navigator";
 
 const { Button, Text, TouchableHighlight } = React;
 
 const Router = {
   getSpeakEasiesRoute() {
-    const that = this;
     return {
       renderScene(navigator) {
         return (
@@ -25,7 +25,8 @@ const Router = {
         return (
           <NavButton
             navigator={navigator}
-            route={that.getSpeakEasiesMapRoute()}
+            route={Router.getSpeakEasiesMapRoute()}
+            text="Map"
           />
         );
       },
@@ -44,11 +45,19 @@ const Router = {
 
   getSpeakEasiesMapRoute() {
     return {
+      configureScene() {
+        return {...ExNavigator.SceneConfigs.FloatFromBottom, gestures: null};
+      },
+
       renderScene(navigator) {
         return (
           <SpeakEasiesMapView navigator={navigator} />
         );
-      }
+      },
+
+      getTitle() {
+        return 'Speak Easies';
+      },
     }
   }
 }

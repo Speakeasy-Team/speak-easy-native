@@ -10,13 +10,14 @@ class NavButton extends Component {
   }
 
   render() {
+    const { text } = this.props
     return (
       <TouchableHighlight
         onPress={() => this.handlePress()}
         touchRetentionOffset={ExNavigator.Styles.barButtonTouchRetentionOffset}
         style={ExNavigator.Styles.barRightButton}
       >
-        <Text style={ExNavigator.Styles.barRightButtonText}>Map</Text>
+        <Text style={ExNavigator.Styles.barRightButtonText}>{text}</Text>
       </TouchableHighlight>
     )
   };

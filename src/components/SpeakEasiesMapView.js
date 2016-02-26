@@ -65,7 +65,6 @@ class SpeakEasiesMapView extends Component {
           region={region}
           style={styles.map}
           showsUserLocation={true}
-          followUserLocation={true}
           showsPointsOfInterest={false}
           annotations={annotations}
         />
