@@ -1,7 +1,7 @@
 import React from "react-native";
 import MapView from "react-native-maps";
 
-const { View, TouchableHighlight, Text } = React;
+const { View, TouchableOpacity, Text } = React;
 
 class SpeakEasyCallout extends React.Component {
   handlePress() {
@@ -14,12 +14,12 @@ class SpeakEasyCallout extends React.Component {
 
     return(
       <View>
-        <TouchableHighlight onPress={this.handlePress.bind(this)}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)}>
           <View>
             <Text>{name}</Text>
             <Text>{description}</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }

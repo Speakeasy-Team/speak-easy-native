@@ -1,7 +1,7 @@
 import React from "react-native";
 import ExNavigator from "@exponent/react-native-navigator";
 
-const { Text, TouchableHighlight, Component } = React;
+const { Text, TouchableOpacity, Component } = React;
 
 class NavButton extends Component {
   handlePress() {
@@ -14,13 +14,13 @@ class NavButton extends Component {
     const { text } = this.props;
 
     return (
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={() => this.handlePress()}
         touchRetentionOffset={ExNavigator.Styles.barButtonTouchRetentionOffset}
         style={ExNavigator.Styles.barRightButton}
       >
         <Text style={ExNavigator.Styles.barRightButtonText}>{text}</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   };
 }
