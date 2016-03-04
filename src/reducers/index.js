@@ -3,7 +3,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  speakEasies: [],
+  entities: {},
   isFetching: false,
   currentLocation: {},
 }
@@ -11,7 +11,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case RECEIVE_SPEAK_EASIES:
-      return Object.assign({}, state, { isFetching: false, speakEasies: action.json.data });
+      return Object.assign({}, state, { isFetching: false, entities: action.json.entities });
     case REQUEST_SPEAK_EASIES:
       return Object.assign({}, state, { isFetching: true });
     case RECEIVE_CURRENT_LOCATION:

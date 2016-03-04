@@ -56,7 +56,7 @@ const findSpeakEasyById = (speakEasies, id) => {
 
 const select = (state) => {
   return {
-    speakEasies: state.speakEasies || [],
+    speakEasies: state.entities.location || [],
     isFetching: state.isFetching,
   }
 }

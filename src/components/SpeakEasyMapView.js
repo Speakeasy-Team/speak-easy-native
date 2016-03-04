@@ -1,6 +1,7 @@
 import React from "react-native";
 import MapView from "react-native-maps";
 import { connect } from "react-redux";
+import { map } from "lodash";
 import Router from "../Router";
 import SpeakEasyCallout from "./SpeakEasyCallout";
 
@@ -14,7 +15,7 @@ class SpeakEasyMapView extends React.Component {
   }
 
   renderMarkers(speakEasies) {
-    return speakEasies.map((speakEasy) => {
+    return map(speakEasies, (speakEasy) => {
       const coords = {
         latitude: speakEasy.latitude,
         longitude: speakEasy.longitude
