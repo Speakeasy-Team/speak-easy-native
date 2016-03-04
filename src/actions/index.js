@@ -1,3 +1,5 @@
+import { entitize } from "json-api-entitizer";
+
 export const REQUEST_SPEAK_EASIES = "REQUEST_SPEAK_EASIES";
 export const RECEIVE_SPEAK_EASIES = "RECEIVE_SPEAK_EASIES";
 export const REQUEST_CURRENT_LOCATION = "REQUEST_CURRENT_LOCATION";
@@ -17,12 +19,20 @@ function receiveSpeakEasies(json) {
 }
 
 export function loadSpeakEasies() {
+  const options =   {
+    method: "get",
+    headers: {
+      'Accept': 'application/vnd.api+json',
+      'Content-Type': 'application/vnd.api+json',
+    },
+  }
+
   return dispatch => {
     dispatch(requestSpeakEasies());
 
-    return fetch(`${API_URL}/locations`)
+    return fetch(`${API_URL}/locations`, options)
       .then(res => res.json())
-      .then(json => dispatch(receiveSpeakEasies(json)));
+      .then(json => dispatch(receiveSpeakEasies(entitize(json))));
   }
 }
 
