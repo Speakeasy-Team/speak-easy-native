@@ -1,27 +1,28 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
+import variables from "../patterns/variables";
 
-const styles = {
+const styles = StyleSheet.create({
   view: {
     flex: 1,
-    paddingTop: 65,
+    paddingTop: variables.navHeight,
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: variables.backgroundColor,
   },
   name: {
-    paddingTop: 10,
+    paddingTop: variables.baseSpacing,
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: variables.baseHeadingSize,
   },
   tags: {
-    padding: 7,
+    padding: variables.baseSpacing,
   },
   description: {
-    margin: 10,
+    margin: variables.baseSpacing,
   },
   image: {
     height: 60,
     width: 60
   },
-}
+});
 
-export default styles
+export default styles;
