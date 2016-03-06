@@ -26,7 +26,7 @@ class SpeakEasyMapViewContainer extends React.Component {
 const select = (state) => {
   return {
     speakEasies: state.entities.location,
-    currentLocation: state.currentLocation,
+    currentLocation: state.root.currentLocation,
   }
 }
 
