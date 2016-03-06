@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
+import variables from "../patterns/variables";
 
 const styles = StyleSheet.create({
   view: {
@@ -6,11 +7,11 @@ const styles = StyleSheet.create({
   },
   component: {
     flex: 1,
-    marginBottom: 10,
+    marginBottom: variables.baseSpacing,
     height: 150,
   },
   name: {
-    fontSize: 20,
+    fontSize: variables.baseHeadingSize,
     backgroundColor: "transparent",
     color: "white",
     position: "absolute",
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   description: {
-    fontSize: 15,
+    fontSize: variables.baseFontSize,
     backgroundColor: "transparent",
     color: "white",
     position: "absolute",
@@ -43,4 +44,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default styles
+export default styles;
