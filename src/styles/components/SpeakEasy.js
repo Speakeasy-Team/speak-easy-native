@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import variables from "../patterns/variables";
+import variables from "../variables";
 
 const styles = StyleSheet.create({
   view: {
@@ -10,11 +10,6 @@ const styles = StyleSheet.create({
   image: {
     height: 240,
   },
-  info: {
-    padding: variables.baseSpacing,
-    borderBottomWidth: variables.baseBorderWidth,
-    borderBottomColor: variables.baseBorderColor,
-  },
   header: {
     fontWeight: variables.boldFontWeight,
   },
@@ -22,7 +17,7 @@ const styles = StyleSheet.create({
     textAlign: "justify",
   },
   lastItem: {
-    borderBottomWidth: 0,
+    marginBottom: 0,
   }
 });
 
