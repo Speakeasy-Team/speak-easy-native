@@ -1,6 +1,8 @@
 import React from "react-native";
 import styles from "../styles/components/SpeakEasy";
 import Swiper from "react-native-swiper";
+import StarRating from 'react-native-star-rating';
+import Rating from "./Rating";
 
 const {
   Component,
@@ -32,7 +34,7 @@ class SpeakEasy extends Component {
           <Text style={styles.header}>{name}</Text>
           <Text>123 hello world ln</Text>
           <Text>(123) 456-7890</Text>
-          <Text>Rating: 4.9</Text>
+          <Rating rating={3.5} />
         </View>
         <View style={styles.info}>
           <Text style={styles.header}>Quick Tips</Text>
