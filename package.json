@@ -12,6 +12,7 @@
     "react-native": "^0.20.0",
     "react-native-linear-gradient": "^1.5.2",
     "react-native-maps": "^0.3.0",
+    "react-native-swiper": "^1.4.3",
     "react-redux": "^4.0.6",
     "redux": "^3.0.5",
     "redux-logger": "^2.4.0",

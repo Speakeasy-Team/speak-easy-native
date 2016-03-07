@@ -3,7 +3,7 @@ const variables = {
   baseHeadingSize: 20,
   baseFontSize: 15,
   baseSpacing: 10,
-  navHeight: 65,
+  navHeight: 64,
 }
 
 export default variables;

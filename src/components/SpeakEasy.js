@@ -1,5 +1,6 @@
 import React from "react-native";
-import styles from "../styles/components/SpeakEasy"
+import styles from "../styles/components/SpeakEasy";
+import Swiper from "react-native-swiper";
 
 const {
   Component,
@@ -7,18 +8,26 @@ const {
   StyleSheet,
   Text,
   View,
+  ScrollView,
 } = React;
 
 class SpeakEasy extends Component {
+  renderImages(images) {
+    return images.map((image) => {
+      return <Image key={image} source={{ uri: image }} style={styles.image} />
+    })
+  }
+
   render() {
     const { name, tags, description, coverImageUrl } = this.props.speakEasy
     const tagList = tags.join(', ')
+    const images = [coverImageUrl, coverImageUrl, coverImageUrl, coverImageUrl]
 
     return (
       <View style={styles.view}>
-        <Text style={styles.name}>{name}</Text>
-        <Image source={{ uri: coverImageUrl }} style={styles.image} />
-        <Text style={styles.tags}>{tagList}</Text>
+        <Swiper height={240} paginationStyle={{ bottom: 20 }}>
+          {this.renderImages(images)}
+        </Swiper>
         <Text style={styles.description}>{description}</Text>
       </View>
     );
