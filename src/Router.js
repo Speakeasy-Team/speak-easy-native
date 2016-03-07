@@ -17,7 +17,7 @@ const Router = {
       },
 
       getTitle() {
-        return 'Speak Easies';
+        return 'Speakeasies';
       },
 
       renderRightButton(navigator) {
@@ -38,6 +38,14 @@ const Router = {
           <SpeakEasy navigator={navigator} speakEasy={speakEasy} />
         );
       },
+
+      getTitle() {
+        return speakEasy.name;
+      },
+
+      getBackButtonTitle() {
+        return null;
+      }
     }
   },
 
@@ -54,7 +62,7 @@ const Router = {
       },
 
       getTitle() {
-        return 'Speak Easies';
+        return 'Speakeasies';
       },
 
       renderLeftButton() {

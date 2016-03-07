@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     margin: variables.baseSpacing,
   },
   image: {
-    height: 60,
-    width: 60
+    height: 240,
   },
 });
 
